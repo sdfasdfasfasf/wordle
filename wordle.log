@@ -1,0 +1,66 @@
+Ошибка: russian_nouns.txt (Не удается найти указанный файл)
+java.io.FileNotFoundException: russian_nouns.txt (Не удается найти указанный файл)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:213)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:152)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:106)
+	at ru.yandex.practicum.dictionary.WordleDictionaryLoader.loadDictionary(WordleDictionaryLoader.java:16)
+	at ru.yandex.practicum.Wordle.main(Wordle.java:26)
+Ошибка: Словарь пуст или не содержит подходящих слов
+java.lang.IllegalStateException: Словарь пуст или не содержит подходящих слов
+	at ru.yandex.practicum.dictionary.WordleDictionaryLoader.loadDictionary(WordleDictionaryLoader.java:31)
+	at ru.yandex.practicum.Wordle.main(Wordle.java:26)
+3
+3
+Загаданное слово: дверь
+3
+Загаданное слово: пешка
+3
+Загаданное слово: пешка
+3
+Загаданное слово: слово
+3
+Загаданное слово: дверь
+3
+Загаданное слово: дверь
+3
+Загаданное слово: дверь
+3
+Загаданное слово: слово
+4
+Загаданное слово: герой
+5
+Загаданное слово: пешка
+2
+Загаданное слово: герой
+2
+Загаданное слово: герой
+2
+Загаданное слово: гонец
+2
+Загаданное слово: герой
+2
+Загаданное слово: герой
+2
+Загаданное слово: герой
+2
+Загаданное слово: герой
+Игра завершена
+2
+Загаданное слово: герой
+2
+Загаданное слово: гонец
+2
+Загаданное слово: герой
+Игра завершена
+Загаданное слово: гонец
+2
+Загаданное слово: гонец
+2
+Загаданное слово: герой
+Игровая ошибка: Слово должно состоять из 5 букв
+Игровая ошибка: Слово должно состоять из 5 букв
+Игра завершена
+2
+Загаданное слово: гонец
+Игра завершена
