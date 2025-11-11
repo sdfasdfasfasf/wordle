@@ -4,11 +4,13 @@ import ru.yandex.practicum.dictionary.WordleDictionary;
 import ru.yandex.practicum.dictionary.WordleDictionaryLoader;
 import ru.yandex.practicum.exceptions.GameException;
 import ru.yandex.practicum.exceptions.SystemException;
-import ru.yandex.practicum.game.WordleGame;
 import ru.yandex.practicum.game.GameResult;
+import ru.yandex.practicum.game.WordleGame;
 
-import java.io.*;
-import java.util.*;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.Scanner;
 
 /*
 в главном классе нам нужно:
@@ -37,14 +39,14 @@ public class Wordle {
             WordleGame game = new WordleGame(dictionary, log);
 
             runGame(game, log);
-        } catch(SystemException e) {
+        } catch (SystemException e) {
             System.err.println("Системная ошибка: " + e.getMessage());
 
-            if(log != null) {
+            if (log != null) {
                 log.println("Системная ошибка: " + e.getMessage());
                 e.printStackTrace(log);
             }
-        } catch(Exception e) {
+        } catch (Exception e) {
             System.err.println("Непредвиденная ошибка: " + e.getMessage());
 
             if (log != null) {
@@ -52,7 +54,7 @@ public class Wordle {
                 e.printStackTrace(log);
             }
         } finally {
-            if(log != null) {
+            if (log != null) {
                 log.close();
             }
         }
@@ -61,7 +63,7 @@ public class Wordle {
     private static PrintWriter createLogWriter() throws SystemException {
         try {
             return new PrintWriter(new FileWriter(LOG_FILE, true), true);
-        } catch(IOException e) {
+        } catch (IOException e) {
             throw new SystemException("Не удалось создать лог-файл: " + LOG_FILE, e);
         }
     }
@@ -75,12 +77,12 @@ public class Wordle {
         System.out.println("Для подсказки нажмите Enter без ввода слова.");
         System.out.println();
 
-        while(!game.isGameOver()) {
+        while (!game.isGameOver()) {
             System.out.println("Введите слово (" + game.getAttemptsLeft() + " попыток осталось): ");
             String input = scanner.nextLine().trim();
 
             try {
-                if(input.isEmpty()) {
+                if (input.isEmpty()) {
                     String hint = game.getHint();
                     System.out.println("Подсказка: " + hint);
                     continue;
@@ -90,7 +92,7 @@ public class Wordle {
                 System.out.println(result.getMessage());
                 System.out.println();
 
-                if(result.isWin() || game.getAttemptsLeft() == 0) {
+                if (result.isWin() || game.getAttemptsLeft() == 0) {
                     break;
                 }
             } catch (GameException e) {

@@ -3,7 +3,6 @@ package ru.yandex.practicum.dictionary;
 import ru.yandex.practicum.exceptions.InvalidWordException;
 import ru.yandex.practicum.exceptions.SystemException;
 
-import java.util.List;
 import java.util.*;
 /*
 этот класс содержит в себе список слов List<String>

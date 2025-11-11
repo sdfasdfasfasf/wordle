@@ -3,15 +3,14 @@ package ru.yandex.practicum.game;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import ru.yandex.practicum.dictionary.WordleDictionary;
-import ru.yandex.practicum.exceptions.GameException;
 import ru.yandex.practicum.exceptions.InvalidWordException;
-import ru.yandex.practicum.exceptions.NoAttemptsLeftException;
 import ru.yandex.practicum.exceptions.WordNotFoundException;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.util.Arrays;
 import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class WordleGameTest {
