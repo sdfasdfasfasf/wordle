@@ -24,7 +24,7 @@ public class WordleDictionary {
         this.wordSet = new HashSet<>(words);
     }
 
-    public List<String> getWords(){
+    public List<String> getWords() {
         return words;
     }
 
@@ -51,7 +51,7 @@ public class WordleDictionary {
         List<String> possibleWords = new ArrayList<>();
 
         for (String word : words) {
-            if(isWordPossible(word, correctLetters, wrongLetters, correctPositions, wrongPositions)) {
+            if (isWordPossible(word, correctLetters, wrongLetters, correctPositions, wrongPositions)) {
                 possibleWords.add(word);
             }
         }
@@ -74,7 +74,7 @@ public class WordleDictionary {
             }
         }
 
-        for(Map.Entry<Integer, Set<Character>> entry : wrongPositions.entrySet()) {
+        for (Map.Entry<Integer, Set<Character>> entry : wrongPositions.entrySet()) {
             int position = entry.getKey();
             Set<Character> invalidChars = entry.getValue();
 
@@ -84,13 +84,13 @@ public class WordleDictionary {
         }
 
         for (char letter : correctLetters) {
-            if(word.indexOf(letter) == -1) {
+            if (word.indexOf(letter) == -1) {
                 return false;
             }
         }
 
         for (char letter : wrongLetters) {
-            if(word.indexOf(letter) != -1) {
+            if (word.indexOf(letter) != -1) {
                 return false;
             }
         }

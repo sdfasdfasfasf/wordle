@@ -20,7 +20,7 @@ public class WordleDictionaryLoader {
 
             String line;
 
-            while((line = reader.readLine()) != null) {
+            while ((line = reader.readLine()) != null) {
                 String normalizeWord = normalizeWord(line.trim());
 
                 if(normalizeWord.length() == 5) {
