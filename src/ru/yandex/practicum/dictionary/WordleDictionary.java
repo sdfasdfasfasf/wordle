@@ -16,7 +16,7 @@ public class WordleDictionary {
     private Set<String> wordSet;
 
     public  WordleDictionary(List<String> words) {
-        if(words == null || words.isEmpty()) {
+        if (words == null || words.isEmpty()) {
             throw new SystemException("Словарь не может быть пустым");
         }
 
@@ -29,7 +29,7 @@ public class WordleDictionary {
     }
 
     public boolean contains(String word) throws InvalidWordException {
-        if(word == null || word.length() != 5) {
+        if (word == null || word.length() != 5) {
             throw new InvalidWordException("Слово должно состоять из 5 букв");
         }
 
@@ -50,7 +50,7 @@ public class WordleDictionary {
                                           Map<Integer, Set<Character>> wrongPositions) {
         List<String> possibleWords = new ArrayList<>();
 
-        for(String word : words) {
+        for (String word : words) {
             if(isWordPossible(word, correctLetters, wrongLetters, correctPositions, wrongPositions)) {
                 possibleWords.add(word);
             }
@@ -65,11 +65,11 @@ public class WordleDictionary {
                                    Map<Integer, Character> correctPositions,
                                    Map<Integer, Set<Character>> wrongPositions) {
 
-        for(Map.Entry<Integer, Character> entry : correctPositions.entrySet()) {
+        for (Map.Entry<Integer, Character> entry : correctPositions.entrySet()) {
             int position = entry.getKey();
             char expectedChar = entry.getValue();
 
-            if(word.charAt(position) != expectedChar) {
+            if (word.charAt(position) != expectedChar) {
                 return false;
             }
         }
@@ -78,18 +78,18 @@ public class WordleDictionary {
             int position = entry.getKey();
             Set<Character> invalidChars = entry.getValue();
 
-            if(invalidChars.contains(word.charAt(position))) {
+            if (invalidChars.contains(word.charAt(position))) {
                 return false;
             }
         }
 
-        for(char letter : correctLetters) {
+        for (char letter : correctLetters) {
             if(word.indexOf(letter) == -1) {
                 return false;
             }
         }
 
-        for(char letter : wrongLetters) {
+        for (char letter : wrongLetters) {
             if(word.indexOf(letter) != -1) {
                 return false;
             }

@@ -39,7 +39,7 @@ public class WordleGame {
         this.log = log;
         this.secretWord = dictionary.getRandomWord();
 
-        for(int i = 0; i < 5; i++) {
+        for (int i = 0; i < 5; i++) {
             wrongPositions.put(i, new HashSet<>());
         }
 
@@ -53,24 +53,24 @@ public class WordleGame {
 
         String normalizedAttempt = normalizeWord(attempt);
 
-        if(normalizedAttempt.length() != 5) {
+        if (normalizedAttempt.length() != 5) {
             throw new InvalidWordException("Слово должно состоять из 5 букв");
         }
 
-        if(!dictionary.contains(normalizedAttempt)) {
+        if (!dictionary.contains(normalizedAttempt)) {
             throw new WordNotFoundException(attempt);
         }
 
         previousAttempts.add(normalizedAttempt);
         attemptsLeft--;
 
-        if(normalizedAttempt.equals(secretWord)) {
+        if (normalizedAttempt.equals(secretWord)) {
             return new GameResult(true, "Поздравляем! Вы угадали слово!", attemptsLeft);
         }
 
         String hint = generateHint(normalizedAttempt);
 
-        if(attemptsLeft == 0) {
+        if (attemptsLeft == 0) {
             return new GameResult(false,
                     "Игра окончена! Загаданное слово: " + secretWord, attemptsLeft);
         }
@@ -82,7 +82,7 @@ public class WordleGame {
         List<String> possibleWords = dictionary.findPossibleWords(
                 correctLetters, wrongLetters, correctPositions, wrongPositions);
 
-        if(possibleWords.isEmpty()) {
+        if (possibleWords.isEmpty()) {
             return "Нет подходящих слов";
         }
 
@@ -94,13 +94,13 @@ public class WordleGame {
     private String generateHint(String attempt) {
         StringBuilder  hint = new StringBuilder();
 
-        for(int i = 0; i < 5; i++) {
+        for (int i = 0; i < 5; i++) {
             char attemptChar = attempt.charAt(i);
             char secretChar = secretWord.charAt(i);
 
-            if(attemptChar == secretChar) {
+            if (attemptChar == secretChar) {
                 hint.append("+");
-            } else if(secretWord.indexOf(attemptChar) != -1) {
+            } else if (secretWord.indexOf(attemptChar) != -1) {
                 hint.append("^");
             } else {
                 hint.append("_");

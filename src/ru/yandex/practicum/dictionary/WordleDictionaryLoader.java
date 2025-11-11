@@ -15,7 +15,7 @@ public class WordleDictionaryLoader {
     public WordleDictionary loadDictionary(String filename) throws SystemException {
         List<String> words = new ArrayList<>();
 
-        try(BufferedReader reader = new BufferedReader(
+        try (BufferedReader reader = new BufferedReader(
                 new InputStreamReader(new FileInputStream(filename), "UTF-8"))) {
 
             String line;
@@ -33,7 +33,7 @@ public class WordleDictionaryLoader {
             throw new SystemException("Ошибка чтения файла словаря: " + filename, e);
         }
 
-        if(words.isEmpty()) {
+        if (words.isEmpty()) {
             throw new SystemException("Словарь пуст или не содержит подходящих слов");
         }
 
