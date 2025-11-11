@@ -47,7 +47,7 @@ public class WordleGame {
     }
 
     public GameResult makeAttempt(String attempt) throws NoAttemptsLeftException, WordNotFoundException, InvalidWordException {
-        if(attemptsLeft <= 0) {
+        if (attemptsLeft <= 0) {
             throw new NoAttemptsLeftException();
         }
 
