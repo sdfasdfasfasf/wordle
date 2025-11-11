@@ -23,7 +23,7 @@ public class WordleDictionaryLoader {
             while ((line = reader.readLine()) != null) {
                 String normalizeWord = normalizeWord(line.trim());
 
-                if(normalizeWord.length() == 5) {
+                if (normalizeWord.length() == 5) {
                     words.add(normalizeWord);
                 }
             }
